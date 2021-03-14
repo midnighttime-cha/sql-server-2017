@@ -12,7 +12,9 @@ docker pull mcr.microsoft.com/mssql/server:2017-latest
 
 ```bash
 docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
-   -p 1433:1433 --name sql-server -h sql-server \
+   -p 1433:1433 \
+   --name sql-server \
+   -h sql-server \
    --restart=always \
    -d mcr.microsoft.com/mssql/server:2017-latest
 ```
