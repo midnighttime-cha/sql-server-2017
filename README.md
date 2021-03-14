@@ -1,17 +1,17 @@
-# Microsoft SQL Server 2017
+# Microsoft SQL Server 2017 with Docker
 
 ## Install
 
 ### 1. Pull the SQL Server 2017 Linux container image from Microsoft Container Registry.
 
 ```bash
-sudo docker pull mcr.microsoft.com/mssql/server:2017-latest
+docker pull mcr.microsoft.com/mssql/server:2017-latest
 ```
 
 ### 2. To run the container image with Docker
 
 ```bash
-sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
    -p 1433:1433 --name sql1 -h sql1 \
    -d \
    mcr.microsoft.com/mssql/server:2017-latest
@@ -20,7 +20,7 @@ sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourStrong@Passw0rd>" \
 ### 3. To view your Docker containers
 
 ```bash
-sudo docker ps -a
+docker ps -a
 ```
 
 ### 4. If the STATUS column shows a status of Up
@@ -35,7 +35,7 @@ SELECT @@SERVERNAME,
 ## Change the SA password
 
 ```bash
-sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
+docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
    -S localhost -U SA -P "<YourStrong@Passw0rd>" \
    -Q 'ALTER LOGIN SA WITH PASSWORD="<YourNewStrong@Passw0rd>"'
 ```
@@ -45,7 +45,7 @@ sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
 ### 1. Docker command
 
 ```bash
-sudo docker exec -it sql1 "bash"
+docker exec -it sql1 "bash"
 ```
 
 ### 2. SQL command
