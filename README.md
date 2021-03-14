@@ -42,13 +42,13 @@ sudo docker exec -it sql1 /opt/mssql-tools/bin/sqlcmd \
 
 ## Connect to SQL Server
 
-### Docker command
+### 1. Docker command
 
 ```bash
 sudo docker exec -it sql1 "bash"
 ```
 
-### SQL command
+### 2. SQL command
 
 ```bash
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
